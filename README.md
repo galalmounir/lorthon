@@ -12,6 +12,8 @@ LoRthon is a Python wrapper for the LoRa Gateway project from Lora-net/lora_gate
 	- Set TX and RX settings.
 
 # Installation
+Prerequisites: 
+	`pip3 install cython`
 Compiling: 
 	```git clone https://github.com/galalmounir/lorthon.git```
 	Run `make` to to compile and generate the python library.
