@@ -16,55 +16,55 @@
             "tx_enable": false
         },
         "chan_multiSF_0": {
-            /* Lora MAC channel, 125kHz, all SF, 868.1 MHz */
+            /* Lora MAC channel, 125kHz, all SF, 914.6 MHz */
             "enable": true,
             "radio": 0,
             "if": -400000
         },
         "chan_multiSF_1": {
-            /* Lora MAC channel, 125kHz, all SF, 868.3 MHz */
+            /* Lora MAC channel, 125kHz, all SF, 914.8 MHz */
             "enable": true,
             "radio": 0,
             "if": -200000
         },
         "chan_multiSF_2": {
-            /* Lora MAC channel, 125kHz, all SF, 868.5 MHz */
+            /* Lora MAC channel, 125kHz, all SF, 915.0 MHz */
             "enable": true,
             "radio": 0,
             "if": 0
         },
         "chan_multiSF_3": {
-            /* Lora MAC channel, 125kHz, all SF, 867.1 MHz */
+            /* Lora MAC channel, 125kHz, all SF, 915.2 MHz */
             "enable": true,
             "radio": 0,
             "if": 200000
         },
         "chan_multiSF_4": {
-            /* Lora MAC channel, 125kHz, all SF, 867.3 MHz */
+            /* Lora MAC channel, 125kHz, all SF, 915.4 MHz */
             "enable": true,
             "radio": 1,
             "if": -400000
         },
         "chan_multiSF_5": {
-            /* Lora MAC channel, 125kHz, all SF, 867.5 MHz */
+            /* Lora MAC channel, 125kHz, all SF, 915.6 MHz */
             "enable": true,
             "radio": 1,
             "if": -200000
         },
         "chan_multiSF_6": {
-            /* Lora MAC channel, 125kHz, all SF, 867.7 MHz */
+            /* Lora MAC channel, 125kHz, all SF, 915.8 MHz */
             "enable": true,
             "radio": 1,
             "if": 0
         },
         "chan_multiSF_7": {
-            /* Lora MAC channel, 125kHz, all SF, 867.9 MHz */
+            /* Lora MAC channel, 125kHz, all SF, 916.0 MHz */
             "enable": true,
             "radio": 1,
             "if": 200000
         },
         "chan_Lora_std": {
-            /* Lora MAC channel, 250kHz, SF7, 868.3 MHz */
+            /* Lora MAC channel, 250kHz, SF7, 915.0 MHz */
             "enable": true,
             "radio": 0,
             "if": 0,
@@ -72,36 +72,12 @@
             "spread_factor":12 
         },
         "chan_FSK": {
-            /* FSK 50kbps channel, 868.8 MHz */
+            /* FSK 50kbps channel, 915.0 MHz */
             "enable": true,
             "radio": 0,
             "if": 300000,
             "bandwidth": 125000,
             "datarate": 50000
         }
-    },
-    "gateway_conf": {
-        // "gateway_ID": "AA555A0000000000"
-        "MOT_COORDINATOR_ADDRESS":          "ABCDEF123456789E",
-
-        "MOT_TX_POWER":                     22,
-
-        "MOT_TOL":                          1,
-        "MOT_NUMBER_OF_SLOTS":              1,
-        "MOT_NUMBER_OF_SUBSLOTS":           1,
-        "MOT_ACK_MASK_SIZE":                8,
-        "MOT_SUBSLOT_SIZE":                 20,
-    
-        "MOT_REPORT_CODINGRATE":            1,              //CR_4/5
-        "MOT_REPORT_PREAMBLE_LENGTH":       50,
-        "MOT_REPORT_SYMBOL_TIMEOUT":        255,
-        "MOT_REPORT_NO_HEADER":             false,
-        "MOT_REPORT_NO_CRC":                false,
-
-        "MOT_CONNECTION_CODINGRATE":        1,              //CR_4/5
-        "MOT_CONNECTION_PREAMBLE_LENGTH":   15,
-        "MOT_CONNECTION_SYMBOL_TIMEOUT":    255,
-        "MOT_CONNECTION_NO_HEADER":         false,
-        "MOT_CONNECTION_NO_CRC":            false
     }
 }
