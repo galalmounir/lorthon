@@ -332,34 +332,38 @@ char* LoRaRx(){  // return the number of packet
     if (nb_pkt > 0){
         json_object_set_number(root_object, "number_of_pkts", nb_pkt);
         for (int i = 0; i<nb_pkt; i++){
-            char buff[255];
+            char buff[255] = {0};
+            char payload[600] = {0};
             JSON_Value *leaf_value = json_value_init_object();
             JSON_Object *leaf_object = json_value_get_object(leaf_value);
 
-            json_object_set_number(leaf_object, "frequency", rxpkt[0].freq_hz);
-            json_object_set_number(leaf_object, "if_chain", rxpkt[0].if_chain);
-            json_object_set_number(leaf_object, "status", rxpkt[0].status);
-            json_object_set_number(leaf_object, "count_us", rxpkt[0].count_us);
-            json_object_set_number(leaf_object, "rf_chain", rxpkt[0].rf_chain);
-            json_object_set_number(leaf_object, "modulation", rxpkt[0].modulation);
-            json_object_set_number(leaf_object, "bandwidth", rxpkt[0].bandwidth);
-            json_object_set_number(leaf_object, "datarate", rxpkt[0].datarate);
-            json_object_set_number(leaf_object, "coderate", rxpkt[0].coderate);
-            json_object_set_number(leaf_object, "rssi", rxpkt[0].rssi);
-            json_object_set_number(leaf_object, "snr", rxpkt[0].snr);
-            json_object_set_number(leaf_object, "snr_min", rxpkt[0].snr_min);
-            json_object_set_number(leaf_object, "snr_max", rxpkt[0].snr_max);
-            json_object_set_number(leaf_object, "crc", rxpkt[0].crc);
-            json_object_set_number(leaf_object, "size", rxpkt[0].size);
-            sprintf (buff, "%X", &rxpkt[0].payload[0]);
-            json_object_set_string(leaf_object, "payload", &buff);
+            json_object_set_number(leaf_object, "frequency", rxpkt[i].freq_hz);
+            json_object_set_number(leaf_object, "if_chain", rxpkt[i].if_chain);
+            json_object_set_number(leaf_object, "status", rxpkt[i].status);
+            json_object_set_number(leaf_object, "count_us", rxpkt[i].count_us);
+            json_object_set_number(leaf_object, "rf_chain", rxpkt[i].rf_chain);
+            json_object_set_number(leaf_object, "modulation", rxpkt[i].modulation);
+            json_object_set_number(leaf_object, "bandwidth", rxpkt[i].bandwidth);
+            json_object_set_number(leaf_object, "datarate", rxpkt[i].datarate);
+            json_object_set_number(leaf_object, "coderate", rxpkt[i].coderate);
+            json_object_set_number(leaf_object, "rssi", rxpkt[i].rssi);
+            json_object_set_number(leaf_object, "snr", rxpkt[i].snr);
+            json_object_set_number(leaf_object, "snr_min", rxpkt[i].snr_min);
+            json_object_set_number(leaf_object, "snr_max", rxpkt[i].snr_max);
+            json_object_set_number(leaf_object, "crc", rxpkt[i].crc);
+            json_object_set_number(leaf_object, "size", rxpkt[i].size);
+            memcpy(&buff[0],&rxpkt[i].payload[0],rxpkt[i].size);
+            
+            for (int j = 0; j < rxpkt[i].size; j++ ){
+                sprintf(&payload[j*2], "%02X", buff[j]);
+            }
+
+            json_object_set_string(leaf_object, "payload", payload);
             json_array_append_value(leaves,leaf_value);
         }
     }
     
     serialized_string = json_serialize_to_string_pretty(root_value);
-        // json_free_serialized_string(serialized_string);
     json_value_free(root_value);    
     return serialized_string;
-
 }
