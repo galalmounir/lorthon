@@ -280,7 +280,7 @@ uint8_t LoRaStop(){
 	}
 }
 
-uint8_t LoRaTx( uint32_t freq, uint8_t txMode, uint32_t count_us, uint8_t rfChain, int8_t txPower, uint8_t modulation, uint8_t bandwidth, uint32_t datarate, uint8_t coderate,bool invert_pol, uint8_t f_dev, uint16_t preamble, bool noCrc,bool noHeader, uint8_t* payload, uint16_t size){
+uint8_t LoRaTx( uint32_t freq, uint8_t txMode, uint8_t rfChain, int8_t txPower, uint8_t bandwidth, uint32_t datarate, uint8_t coderate, uint16_t preamble, bool noCrc,bool noHeader, uint8_t* payload, uint16_t size){
     struct lgw_pkt_tx_s txpkt;
     memset(&txpkt, 0, sizeof(txpkt));
 
@@ -291,11 +291,11 @@ uint8_t LoRaTx( uint32_t freq, uint8_t txMode, uint32_t count_us, uint8_t rfChai
     txpkt.preamble  	= preamble;
     txpkt.no_crc    	= noCrc; 
     txpkt.no_header 	= noHeader;
-    txpkt.rf_chain  	= 0;
+    txpkt.rf_chain  	= rfChain;
     txpkt.tx_mode 		= txMode; 
     txpkt.rf_power 		= txPower;
-    txpkt.modulation	= modulation;
-    txpkt.invert_pol	= invert_pol;
+    txpkt.modulation	= 0x10;
+    txpkt.invert_pol	= true;
     txpkt.size 			= size;
     memcpy(&txpkt.payload, payload, size);
 

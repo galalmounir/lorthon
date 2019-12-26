@@ -44,11 +44,7 @@
  *                                Prototypes
  *****************************************************************************/
 uint8_t LoRaInit(const char * confFile);
-uint8_t LoRaTx( uint32_t freq, uint8_t tx_mode, uint32_t count_us,
-			   	uint8_t rf_chain, int8_t rf_power, uint8_t modulation, 
-			   	uint8_t bandwidth, uint32_t datarate, uint8_t coderate,
-			   	bool invert_pol, uint8_t f_dev, uint16_t preamble, bool no_crc,
-			   	bool no_header, uint8_t* payload, uint16_t size);
+uint8_t LoRaTx( uint32_t freq, uint8_t txMode, uint8_t rfChain, int8_t txPower, uint8_t bandwidth, uint32_t datarate, uint8_t coderate, uint16_t preamble, bool noCrc,bool noHeader, uint8_t* payload, uint16_t size);
 char* LoRaRx();  // return the number of packets
 uint8_t LoRaStop();
 #endif
