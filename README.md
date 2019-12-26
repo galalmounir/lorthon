@@ -71,7 +71,7 @@ The `py_LoRaRx()` function returns a list of packets received in JSON format.
     lorthon.py_LoRaTx(915000000, 0, 0, 22, 0x03, 0x02, 1, 15, False, False, "HELLO WORLD", 11)
 	lorthon.py_LoRaStop();	
 ```
-###### Next Steps
+# Next Steps
 - python 3 support
 
 # Contribution 
