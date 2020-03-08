@@ -6,7 +6,11 @@ LORADIR = libloragw/inc
 
 default: libparson.a libloragw.a libinterface_lora.a
 	rm interface_lora.o
-	python setup.py build_ext --inplace && rm -f lorthon.c && rm -Rf build
+	python3 setup.py build_ext --inplace && rm -f lorthon.c && rm -Rf build
+	ls
+	$(eval outputFile=$(shell find lorthon.*.so))
+	echo $(outputFile)
+	mv $(outputFile) lorthon.so
 	mkdir -p output
 	cp lorthon.so tst/lorthon.so
 	mv lorthon.so output/lorthon.so
