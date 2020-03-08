@@ -16,7 +16,7 @@ Prerequisites:
 	`pip install cython`
 Compiling: 
 	```git clone https://github.com/galalmounir/lorthon.git```
-	Run `make` to to compile and generate the python library.
+	Run `sh install.sh` to compile and generate the python library.
 
 # Usage
 Once compiled, the library will be generated inside the `output` folder. Copy the lorthon.so file to your python project directory.
