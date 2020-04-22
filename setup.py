@@ -11,5 +11,6 @@ LoRa_Extension = Extension(
 )
 setup(
 	name="lorthon",
-	ext_modules=cythonize([LoRa_Extension])
+	#ext_modules=cythonize([LoRa_Extension])
+        ext_modules=cythonize([LoRa_Extension], language_level="3")
 )
