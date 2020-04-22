@@ -8,9 +8,9 @@ default: libparson.a libloragw.a libinterface_lora.a
 	rm interface_lora.o
 	#python setup.py build_ext --inplace && rm -f lorthon.c && rm -Rf build
 	python3 setup.py build_ext --inplace && rm -f lorthon.c && rm -Rf build
-	#mkdir -p output
-	#cp lorthon.so tst/lorthon.so
-	#mv lorthon.so output/lorthon.so
+	mkdir -p output
+	mv lorthon.cpython*.so tst/lorthon.so
+	cp tst/lorthon.so output/lorthon.so
 
 libloragw.a:
 	$(MAKE) -C libloragw
@@ -33,7 +33,6 @@ clean:
 	rm -f tst/lorthon.so
 	rm -f interface_lora.o
 	rm -f lorthon.so
-	rm -f lorthon.cpython*.so
 	rm -f parson/testcpp
 	cd libloragw && $(MAKE) clean
 	cd parson && $(MAKE) clean
