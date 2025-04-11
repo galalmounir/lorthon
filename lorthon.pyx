@@ -1,3 +1,4 @@
+import os
 cdef extern from "interface_lora.h":
 	void LoRaTx( unsigned int freq, char tx_mode,
 			char rf_chain, char rf_power, 
@@ -9,17 +10,14 @@ cdef extern from "interface_lora.h":
 	char* LoRaRx();
 
 def py_LoRaTx(freq: int, tx_mode: int, rf_chain: int, rf_power: int, bandwidth: int, datarate: int, 
-		coderate: int, preamble: int, no_crc: bool, no_header: bool, payload: bytes, size: int) -> None:
+		coderate: int, preamble: int, no_crc: bool, no_header: bool, payload: str, size: int) -> None:
 
-	LoRaTx(freq, tx_mode, rf_chain, rf_power, bandwidth, datarate, coderate, preamble, no_crc, no_header, payload, size)
+	LoRaTx(freq, tx_mode, rf_chain, rf_power, bandwidth, datarate, coderate, preamble, no_crc, no_header, payload.encode('utf-8'), size)
 def py_LoRaInit(confFile):
-	value = LoRaInit (confFile)
+	value = LoRaInit (confFile.encode('utf-8'))
 	return value
 def py_LoRaStop():
 	LoRaStop()
 def py_LoRaRx():
 	value = LoRaRx()
 	return value
-
-
-

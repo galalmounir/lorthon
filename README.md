@@ -16,7 +16,7 @@ Prerequisites:
 	`pip install cython`
 Compiling: 
 	```git clone https://github.com/galalmounir/lorthon.git```
-	Run `make` to to compile and generate the python library.
+	Run `make` to compile and generate the python library.
 
 # Usage
 Once compiled, the library will be generated inside the `output` folder. Copy the lorthon.so file to your python project directory.
@@ -71,8 +71,13 @@ lorthon.py_LoRaInit("global_conf.json")
 lorthon.py_LoRaTx(915000000, 0, 0, 22, 0x03, 0x02, 1, 15, False, False, "HELLO WORLD", 11)
 lorthon.py_LoRaStop();	
 ```
-# Next Steps
-- python 3 support
+
+# Raspberry Pi Notes
+A recent update of the kernel of Raspberry Pis changed the Device Tree Overlay setting for the SPI and enabled by default the Chip Select Pins 7 and 8. This causes the RHF0M301 to not work properly. To fix this, you need to disable the Chip Select Pin 7 in the Device Tree Overlay settings. You can do this by adding the following line to the `/boot/firmware/config.txt` file:
+([reference](https://github.com/Lora-net/lora_gateway/issues/162))
+```bash
+dtoverlay=spi0-cs,cs1_pin=25
+```
 
 # Contribution 
 I am continuously improving on lorthon. I will always merge working bug fixes. However, if you want to add something new to the library, please create an "issue" on github for this first so we can discuss if it should end up in the library before you start implementing it.
