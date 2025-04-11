@@ -14,7 +14,6 @@ def py_LoRaTx(freq: int, tx_mode: int, rf_chain: int, rf_power: int, bandwidth: 
 
 	LoRaTx(freq, tx_mode, rf_chain, rf_power, bandwidth, datarate, coderate, preamble, no_crc, no_header, payload.encode('utf-8'), size)
 def py_LoRaInit(confFile):
-	os.system('sudo gwrst')
 	value = LoRaInit (confFile.encode('utf-8'))
 	return value
 def py_LoRaStop():
