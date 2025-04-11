@@ -1,4 +1,4 @@
-name: build-library
+name: Build Status
 
 on:
   push:
