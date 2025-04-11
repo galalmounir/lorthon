@@ -1,3 +1,4 @@
+![Build-Status](https://github.com/galalmounir/lorthon/actions/workflows/build.yml/badge.svg)
 # About
 LoRthon is a Python wrapper for the LoRa Gateway project from Lora-net/lora_gateway/libloragw/
 
